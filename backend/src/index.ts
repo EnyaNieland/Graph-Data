@@ -45,7 +45,7 @@ const sampleData = {
   ]
 };
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api', (req: Request, res: Response) => {
   res.json(sampleData);
 });
 
