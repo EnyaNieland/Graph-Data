@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import HierarchyTree from './components/HierarchyTree.vue'
+import { GraphDataResponse } from './models/data.dto';
 
 const data: Response = await fetch('/api/data')
 console.log("This is the response:", data);
-const body = await data.json();
+const body: GraphDataResponse = await data.json();
 console.log("This is the body data:", body);
 </script>
 
@@ -18,9 +18,9 @@ console.log("This is the body data:", body);
   </header>
 
   <main>
-    {{ data }}
-    {{ body }}
-    <HierarchyTree />
+    <ul>
+      <li v-for="node in body.data" :key="node.name">Name:{{ node.name }}; Parent: {{ node.parent }}</li>
+    </ul>
   </main>
 </template>
 
