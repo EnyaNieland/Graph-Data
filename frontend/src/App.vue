@@ -2,10 +2,10 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import { type GraphDataResponse } from '@/models/data.dto';
 
-const data: Response = await fetch('/api/data')
-console.log("This is the response:", data);
-const body: GraphDataResponse = await data.json();
-console.log("This is the body data:", body);
+const response: Response = await fetch('/api/data')
+console.log("This is the response:", response);
+const { data }: GraphDataResponse = await response.json();
+console.log("This is the body data:", data);
 </script>
 
 <template>
@@ -19,7 +19,7 @@ console.log("This is the body data:", body);
 
   <main>
     <ul>
-      <li v-for="node in body.data" :key="node.name">Name:{{ node.name }}; Parent: {{ node.parent }}</li>
+      <li v-for="node in data" :key="node.name">Name:{{ node.name }}; Parent: {{ node.parent }}</li>
     </ul>
   </main>
 </template>
