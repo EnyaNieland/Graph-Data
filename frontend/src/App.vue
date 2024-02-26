@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import { GraphDataResponse } from './models/data.dto';
+import HelloWorld from '@/components/HelloWorld.vue'
+import { type GraphDataResponse } from '@/models/data.dto';
 
 const data: Response = await fetch('/api/data')
 console.log("This is the response:", data);
