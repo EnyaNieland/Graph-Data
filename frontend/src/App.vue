@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+
+const data = await fetch('/api/data')
+const { body } = await data.json()
+console.log('Data:', body)
 </script>
 
 <template>
@@ -13,7 +17,8 @@ import TheWelcome from './components/TheWelcome.vue'
   </header>
 
   <main>
-    <TheWelcome />
+    {{ body }}
+    <!-- <TheWelcome /> -->
   </main>
 </template>
 
