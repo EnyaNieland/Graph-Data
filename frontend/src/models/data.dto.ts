@@ -5,5 +5,6 @@ export interface GraphDataResponse {
 export interface GraphNode {
     name: string,
     description: string,
-    parent?: string
+    parent: string
+    children: GraphNode[]
 }
