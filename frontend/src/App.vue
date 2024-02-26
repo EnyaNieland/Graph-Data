@@ -2,7 +2,10 @@
 import HelloWorld from './components/HelloWorld.vue'
 import HierarchyTree from './components/HierarchyTree.vue'
 
-const { body } = await fetch('/api/data')
+const data: Response = await fetch('/api/data')
+console.log("This is the response:", data);
+const body = await data.json();
+console.log("This is the body data:", body);
 </script>
 
 <template>
@@ -15,6 +18,7 @@ const { body } = await fetch('/api/data')
   </header>
 
   <main>
+    {{ data }}
     {{ body }}
     <HierarchyTree />
   </main>
