@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import HierarchyTree from './components/HierarchyTree.vue'
 
-const data = await fetch('/api/data')
-const { body } = await data.json()
-console.log('Data:', body)
+const { body } = await fetch('/api/data')
 </script>
 
 <template>
@@ -18,7 +16,7 @@ console.log('Data:', body)
 
   <main>
     {{ body }}
-    <!-- <TheWelcome /> -->
+    <HierarchyTree />
   </main>
 </template>
 
