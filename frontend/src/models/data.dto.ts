@@ -6,5 +6,5 @@ export interface GraphNode {
     name: string,
     description: string,
     parent: string
-    children: GraphNode[]
+    children?: GraphNode[]
 }
