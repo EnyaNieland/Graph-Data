@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'
-import { type GraphDataResponse } from '@/models/data.dto';
+import { type GraphDataResponse, type GraphNode } from '@/models/data.dto';
 
-const response: Response = await fetch('/api/data')
-console.log("This is the response:", response);
-const { data }: GraphDataResponse = await response.json();
-console.log("This is the body data:", data);
+const data = ref<GraphNode[]>([]);
+
+onMounted(async () => {
+  const response: Response = await fetch('/api/data')
+  console.log("This is the response:", response); 
+  const body: GraphDataResponse = await response.json();
+  console.log("This is the body data:", body);
+
+  data.value = body.data;
+});
 </script>
 
 <template>
