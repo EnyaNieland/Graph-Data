@@ -18,21 +18,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install frontend dependencies
+      - name: Install & Build vue.js application
         run: npm install
+             npm run build
         working-directory: ./frontend
-
-      - name: Build frontend
-        run: npm run build
-        working-directory: ./frontend
-
-      - name: Install backend dependencies
-        run: npm install
-        working-directory: ./backend
-
-      - name: Build backend
-        run: npm run build
-        working-directory: ./backend
 
       - name: Build And Deploy
         id: builddeploy
@@ -42,7 +31,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           app_location: "frontend/dist"
-          api_location: "backend/dist"
+          api_location: "api"
           output_location: "dist"
 
   close_pull_request_job:
