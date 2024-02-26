@@ -19,8 +19,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install & Build vue.js application
-        run: npm install
-             npm run build
+        run: |
+          npm install
+          npm run build
         working-directory: ./frontend
 
       - name: Build And Deploy
