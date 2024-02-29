@@ -2,6 +2,8 @@
 
 The project uses Vue combined with a Azure Functions. To run the code follow the steps below.
 
+[Click here](https://red-mud-054840c03.4.azurestaticapps.net) to view the deployed instance of the graph data.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Azure Functions Extension](https://code.visualstudio.com/docs/azure/extensions)
